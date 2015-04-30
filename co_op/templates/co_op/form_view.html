@@ -1,0 +1,75 @@
+{% extends 'co_op/base.html' %}
+{% load staticfiles %}
+{% load css %}
+
+{% block content %}
+	<link rel="stylesheet" href="{% static 'css/form_view.css' %}">
+
+	<form method="POST" enctype="multipart/form-data" action=""> 
+		<div class="form-title"> New Posting </div>
+
+        {% csrf_token %}
+		{{ picForm.management_form }}
+		<div class="form">
+			<table>
+				<tr>
+					<td> <label id="title"> Enter a title: </label> </td>
+					<td> {{ descForm.title | css:"base-form" }} </td>
+				</tr>
+				<tr>
+					<td> <label id="description"> Describe your house: </label> </td>
+					<td> {{ descForm.description | css:"description-field" }} </td>
+				</tr>
+				<tr>
+					<td> <label id="number_of_semesters"> How many semesters are you gone for? </label> </td>
+					<td> {{ descForm.number_of_semesters | css:"mc-field"}} </td>
+				</tr>
+
+				<hr size=1 width=500>
+
+				<tr>
+					<td> <label id="address"> Address: </label> </td>
+					<td> {{ addressForm.address | css:"base-form" }} </td>
+				</tr>
+				<tr>
+					<td> <label id="postal_code">Postal Code: </label> </td>
+					<td> {{ addressForm.postal_code | css:"base-form" }}</td>
+				</tr>
+				<tr>
+					<td> <label id="apartment_number">Apartment Number: </label> </td>
+					<td> {{ addressForm.apartment_number | css:"base-form" }} </td>
+				</tr>
+				<tr>
+					<td> <label id="rent_per_month">How much do you want to charge per month? </label> </td>
+					<td> {{ houseForm.rent_per_month | css:"base-form" }} </td>
+				</tr>
+				<tr>
+					<td> <label id="number_of_rooms">Number of rooms: </label> </td>
+					<td> {{ houseForm.number_of_rooms | css:"base-form" }} </td>
+				</tr>
+				<tr>
+					<td> <label id="number_of_bathrooms">Number of bathrooms: </label> </td>
+					<td> {{ houseForm.number_of_bathrooms | css:"base-form" }} </td>
+				</tr>
+				<tr>
+					<td> <label id="number_of_roommates">The number of roommates you currently have? </label> </td>
+					<td> {{ houseForm.number_of_roommates | css:"mc-field" }} </td>
+				</tr>
+				<tr>
+					<td> <label id="average_cost_utilities">Average cost of utilites: </label> </td>
+					<td> {{ houseForm.average_cost_utilities | css:"base-form" }} </td>
+				</tr>
+			</table>
+			<hr size=1 width=500>
+
+			<div class="image-form">
+				 {% for form in picForm.forms %}
+				 	<p> {{ form }} </p>
+				 {% endfor %}
+			</div>
+
+			<button type="submit" class="save btn btn-default"> Submit </button>
+		</div>
+	</form>
+{% endblock content %}
+

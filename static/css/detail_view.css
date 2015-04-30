@@ -1,0 +1,97 @@
+.main {
+	font-family: 'Lato', sans-serif;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.banner-image img {
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+}
+
+.banner-image {
+	width: 100%;
+	height: 300px;
+	overflow: hidden;
+}
+
+.title {
+	font-family: 'Lato-Bold', sans-serif;
+	font-size: 35px;
+	text-align: center;
+	padding-top: 10px;
+}
+
+.description {
+	padding-top: 20px;
+	text-align: left;
+	width: 500px;
+	margin: 0 auto;
+}
+
+table {
+	padding-top: 10px;
+	text-align: left;
+	font-family: 'Lato', sans-serif;
+}
+
+.image-container {
+	position: relative;
+}
+
+.image-list img {
+	padding-top: 50px;
+	width: 300px;
+	height: auto;
+	max-width: 100%;
+	padding-left: 30px;
+	padding-right: 30px;
+	text-align: center;
+}
+
+.image-list {
+	margin: 0 auto;
+	vertical-align: middle;
+	padding-bottom: 40px;
+	width: 1080;
+}
+
+.img0 {
+	opacity: 0.3;
+}
+
+.img2 {
+	opacity: 0.3;
+}
+
+.image-container:hover .previous-arrow {
+	opacity: 1;
+}
+
+.image-container:hover .next-arrow {
+	opacity: 1;
+}
+
+.previous-arrow {
+	position: absolute;
+	opacity: 0;
+	top: 35%;
+	left: 20%;
+	width: 100px;
+	height: 100px;
+}
+
+.next-arrow {
+	position: absolute; 
+	margin-right: auto;
+	margin-left: auto;
+	top: 35%;
+	right: 20%;
+	z-index: 3;
+	opacity: 0;
+	width: 100px;
+	height: 100px;
+}
+
+

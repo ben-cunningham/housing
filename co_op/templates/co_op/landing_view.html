@@ -1,0 +1,42 @@
+{% extends 'co_op/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/landing_view.css' %}">
+
+<img class="title-image" src="{% static 'images/CadboroBay_ocean.jpg' %}">
+
+<div class="login-box">
+	{% if user.is_authenticated %}
+		<div class="greeting">
+			Hello, 
+			{{ user.first_name }}
+		</div>
+		<a href="/logout">Logout</a>
+	{% else %}
+	<div id="title"> 
+		Sign in to post
+	</div>
+	<a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">
+		<img id="link" src="{% static 'images/facebook_signin.png' %}">
+	</a>
+	<a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.path }}">
+		<img id="link" src="{% static 'images/google_signin.png' %}">
+	</a>
+	{% endif %}
+</div>
+
+<div class="login-copy">
+	<p> 
+		This site exists to hopefully alleviate some of the pain of finding a house to rent or a subletter. The aim to 
+		provide a central place for students to find housing during Univserity. Criagslist is muddled with postings for houses for sale and
+		mostly listings not relevant to what a student is looking for.
+	</p>
+	<p>
+
+	</p>
+</div>
+
+{% endblock content %}
+

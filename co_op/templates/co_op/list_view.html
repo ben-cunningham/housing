@@ -1,0 +1,46 @@
+{% extends 'co_op/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/list_view.css' %}">
+
+{% for post1, post2 in postings %}
+	<tr>
+		<td>
+			{% if post1 != None %}
+				<div class="post">
+					{% with post1.images.all|first as image %}
+  						<a href="/posts/{{ post1.id }}/"> <img class="image" src="{{ image.photo.url }}">
+					{% endwith %}
+					<div class="information">
+						<div class="title">
+							<a href="/posts/{{ post1.id }}/">{{ post1.title }}</a></h1>
+						</div>
+						<div class="rent-per-month">
+							${{ post1.house.rent_per_month }}
+						</div>
+					</div>
+				</div>
+			{% endif %}
+		</td>
+
+		<td>
+		{% if post2 != None %}
+			<div class="post">
+				{% with post2.images.all|first as image %}
+						<a href="/posts/{{ post2.id }}/"> <img class="image" src="{{ image.photo.url }}">
+				{% endwith %}
+				<div class="information">
+					<div class="title">
+						<a href="/posts/{{ post2.id }}/">{{ post1.title }}</a></h1>
+					</div>
+					<div class="rent-per-month">
+						${{ post1.house.rent_per_month }}
+					</div>
+				</div>
+			</div>
+		{% endif %}
+		</td>
+	</tr>
+{% endfor %}
+{% endblock content %}

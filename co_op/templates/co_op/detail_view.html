@@ -1,0 +1,87 @@
+{% extends 'co_op/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/detail_view.css' %}">
+
+<div class="main">
+	<div class="banner-image">
+		<img src="../../{{ first_image.url }}">
+	</div>
+	<div class="posting">
+		<div class="title">
+			{{ posting.title }}
+		</div>
+		<div class="description"> 
+			{{ posting.description }}
+		</div>
+	</div>
+</div>
+
+<table align="center" width="50%">
+	<tr>
+		<td> Number of semesters <b> {{ posting.number_of_semesters }} </b> </td>
+		<td> Address: <b> {{ posting.house.address }} </b> </td>
+	</tr>
+	<tr>
+		<td> Rent per month <b> {{ posting.house.rent_per_month }} </b> </td>
+		<td> Number of rooms <b> {{ posting.house.number_of_rooms }} </b> </td>
+	</tr>
+	<tr>
+		<td> Number of bathrooms <b> {{ posting.house.number_of_bathrooms }} </b> </td>
+		<td> Average cost of utilities <b> {{ posting.house.average_cost_utilities }} </b> </td>
+	</tr>
+	<tr>
+		<td> Number of roommates <b> {{ posting.house.number_of_roommates }} </b> </td>
+        <td> Poster: <b> {{ posting.user_profile.first_name }} </b> </td>
+	</tr>
+</table>
+
+<div class="image-container">
+	<div class='image-list'></div>
+
+	<img class="next-arrow" src="{% static 'images/next-arrow.png' %}">
+	<img class="previous-arrow" src="{% static 'images/previous-arrow.png' %}">
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+function images() {
+	var images = [];
+
+	{% for image in images %}
+		images.push('../../{{ image.photo.url }}');
+	{% endfor %}
+	
+	return images;
+}
+
+var imageURLOne = 0;
+var imageURLTwo = 1;
+var imageURLThree = 2;
+
+var imageArray = images();
+for (var i = 0; i < 3; i++) {
+	$('.image-list').append('<img class="img' +i +'" src="' +imageArray[i] +'" >');
+	console.log('<img class="img' +i +'" src="' +imageArray[i] +'" >');
+}
+
+$('.next-arrow').click(function() {
+	if (imageURLThree < imageArray.length) {
+		$('.img0').attr("src", imageArray[++imageURLOne]);
+		$('.img1').attr("src", imageArray[++imageURLTwo]);
+		$('.img2').attr("src", imageArray[++imageURLThree]);
+	};
+});
+
+$('.previous-arrow').click(function() {
+	if (imageURLOne >= 0) {
+		$('.img0').attr("src", imageArray[--imageURLOne]);
+		$('.img1').attr("src", imageArray[--imageURLTwo]);
+		$('.img2').attr("src", imageArray[--imageURLThree]);
+	};
+});
+
+</script>
+
+{% endblock content %}

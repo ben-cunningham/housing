@@ -1,0 +1,35 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" href="{% static 'css/co_op.css' %}">
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+<html>
+	<head>
+		<title> Co-Op Website </title>
+	</head>
+	<body>
+    <div class="nav-bar">
+		<ul id="nav-items">
+            <li><a href="{% url 'co_op.views.landing_view' %}"> <img src="{% static 'images/home.png' %}"> </a></li>
+            <li><a href="{% url 'co_op.views.list_view' %}"> <img src="{% static 'images/explore.png' %}"> </a></li>
+            <li><a href="{% url 'co_op.views.form_view' %}"> <img src="{% static 'images/create.png' %}"> </a></li>
+        </ul>
+
+        <div class="profile-pic">
+            <img src="http://graph.facebook.com/{{ user_id }}/picture">
+
+            <div class="drop-down">
+                <ul>
+                    <li> <a href="/history"> My Postings </a></li>
+                    <li> <a href=""> Logout </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+		<div class="content">
+			<table align="center">
+				{% block content %}
+		        {% endblock %}
+		    </table>
+		</div>
+	</body>
+</html>
