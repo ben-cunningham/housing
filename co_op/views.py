@@ -19,7 +19,6 @@ def landing_view(request):
 
 def list_view(request):
 	postings = zip_postings(Posting.objects.all())
-	print(postings)
 	return render(request, 'co_op/list_view.html', {'postings': postings})
 
 
