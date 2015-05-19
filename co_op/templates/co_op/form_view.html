@@ -21,8 +21,8 @@
 					<td> {{ descForm.description | css:"description-field" }} </td>
 				</tr>
 				<tr>
-					<td> <label id="number_of_semesters"> How many semesters are you gone for? </label> </td>
-					<td> {{ descForm.number_of_semesters | css:"mc-field"}} </td>
+					<td> <label id="number_of_semesters"> Number of semesters you are gone for </label> </td>
+					<td> {{ descForm.number_of_semesters | css:"mc-field" }} </td>
 				</tr>
 
 				<hr size=1 width=500>
@@ -36,39 +36,40 @@
 					<td> {{ addressForm.postal_code | css:"base-form" }}</td>
 				</tr>
 				<tr>
-					<td> <label id="apartment_number">Apartment Number: </label> </td>
-					<td> {{ addressForm.apartment_number | css:"base-form" }} </td>
-				</tr>
-				<tr>
-					<td> <label id="rent_per_month">How much do you want to charge per month? </label> </td>
-					<td> {{ houseForm.rent_per_month | css:"base-form" }} </td>
+					<td> <label id="rent_per_month">How much per month? </label> </td>
+					<td> {{ houseForm.rent_per_month | css:"mc-field" }} </td>
 				</tr>
 				<tr>
 					<td> <label id="number_of_rooms">Number of rooms: </label> </td>
-					<td> {{ houseForm.number_of_rooms | css:"base-form" }} </td>
+					<td> {{ houseForm.number_of_rooms | css:"mc-field" }} </td>
 				</tr>
 				<tr>
 					<td> <label id="number_of_bathrooms">Number of bathrooms: </label> </td>
-					<td> {{ houseForm.number_of_bathrooms | css:"base-form" }} </td>
+					<td> {{ houseForm.number_of_bathrooms | css:"mc-field" }} </td>
 				</tr>
 				<tr>
-					<td> <label id="number_of_roommates">The number of roommates you currently have? </label> </td>
+					<td> <label id="number_of_roommates">The number of roommates in the house </label> </td>
 					<td> {{ houseForm.number_of_roommates | css:"mc-field" }} </td>
 				</tr>
 				<tr>
 					<td> <label id="average_cost_utilities">Average cost of utilites: </label> </td>
-					<td> {{ houseForm.average_cost_utilities | css:"base-form" }} </td>
+					<td> {{ houseForm.average_cost_utilities | css:"mc-field" }} </td>
 				</tr>
 			</table>
+
 			<hr size=1 width=500>
 
 			<div class="image-form">
 				 {% for form in picForm.forms %}
-				 	<p> {{ form }} </p>
+                    {% for field in form %}
+                        {{ field }}
+                    {% endfor %}
 				 {% endfor %}
 			</div>
 
-			<button type="submit" class="save btn btn-default"> Submit </button>
+            <div class="submit-button">
+                <button type="submit" class="btn"> Submit </button>
+            </div>
 		</div>
 	</form>
 {% endblock content %}

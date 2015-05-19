@@ -3,6 +3,8 @@ from address import Address
 from django.contrib.auth.models import User
 
 
+# TODO: Start and end date
+
 class House(models.Model):
 	address = models.OneToOneField(Address, null=True)
 	rent_per_month = models.IntegerField(default=0)

@@ -57,10 +57,22 @@ label {
 	vertical-align: top;
 }
 
-#description {
-    height: 200px;
+.image-form {
+    width: 460px;
+    margin: 0 auto;
 }
 
-.image-form {
+button {
+    margin: 0 auto;
+    display: block;
+    top: 10px;
+    position: relative;
+}
 
+.submit-button {
+    padding-bottom: 20px;
+}
+
+#description {
+    height: 200px;
 }

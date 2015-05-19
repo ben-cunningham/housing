@@ -20,20 +20,20 @@
 
 <table align="center" width="50%">
 	<tr>
-		<td> Number of semesters <b> {{ posting.number_of_semesters }} </b> </td>
-		<td> Address: <b> {{ posting.house.address }} </b> </td>
+		<td> <i class="fa fa-clock-o"></i>  Number of semesters <b> {{ posting.number_of_semesters }} </b> </td>
+		<td> <i class="fa fa-home"></i>  Address: <b> {{ posting.house.address.address }} </b> </td>
 	</tr>
 	<tr>
-		<td> Rent per month <b> {{ posting.house.rent_per_month }} </b> </td>
-		<td> Number of rooms <b> {{ posting.house.number_of_rooms }} </b> </td>
+		<td> <i class="fa fa-usd"></i>  Rent per month <b> {{ posting.house.rent_per_month }} </b> </td>
+		<td> <i class="fa fa-bed"></i>  Number of rooms <b> {{ posting.house.number_of_rooms }} </b> </td>
 	</tr>
 	<tr>
-		<td> Number of bathrooms <b> {{ posting.house.number_of_bathrooms }} </b> </td>
-		<td> Average cost of utilities <b> {{ posting.house.average_cost_utilities }} </b> </td>
+		<td> <i class="fa fa-male"></i>  Number of bathrooms <b> {{ posting.house.number_of_bathrooms }} </b> </td>
+		<td> <i class="fa fa-lightbulb-o"></i>  Average cost of utilities <b> {{ posting.house.average_cost_utilities }} </b> </td>
 	</tr>
 	<tr>
-		<td> Number of roommates <b> {{ posting.house.number_of_roommates }} </b> </td>
-        <td> Poster: <b> {{ posting.user_profile.first_name }} </b> </td>
+		<td> <i class="fa fa-users"></i>  Number of roommates <b> {{ posting.house.number_of_roommates }} </b> </td>
+        <td>  <i class="fa fa-facebook-official"></i> Poster: <b> {{ posting.user_profile.first_name }} </b> </td>
 	</tr>
 </table>
 
@@ -63,7 +63,6 @@ var imageURLThree = 2;
 var imageArray = images();
 for (var i = 0; i < 3; i++) {
 	$('.image-list').append('<img class="img' +i +'" src="' +imageArray[i] +'" >');
-	console.log('<img class="img' +i +'" src="' +imageArray[i] +'" >');
 }
 
 $('.next-arrow').click(function() {
